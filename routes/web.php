@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Auth\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +40,8 @@ Route::prefix('admin')->group(function () {
 
 Route::get('user/dashboard', [UserDashboardController::class, 'index'])->name('home');
 Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->middleware('auth:admin');
+
+Route::get('tickets/new', [TicketController::class, 'new']);
+Route::post('tickets/create', [TicketController::class, 'create'])->name('ticket.create');
 
 //Auth::routes();
