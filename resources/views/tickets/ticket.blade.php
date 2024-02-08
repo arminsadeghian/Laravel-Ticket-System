@@ -4,6 +4,9 @@
     <div class="justify-content-center">
         <div class="mt-5">
             <div class="col-md-8 m-lg-5">
+
+                @include('alerts')
+
                 <div class="card">
                     <div class="card-header">
                         <span class="fw-bold">{{ $ticket->title }}</span>
@@ -36,7 +39,7 @@
             @endforeach
 
             <div class="col-md-8 m-lg-5">
-                <form class="mt-5" action="#" method="post">
+                <form class="mt-5" action="{{ route('reply.create', $ticket) }}" method="POST">
                     @csrf
                     <div class="form-group">
                             <textarea name='text' class="form-control" placeholder="Reply message ..."

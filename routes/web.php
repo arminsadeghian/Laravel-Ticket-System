@@ -46,5 +46,6 @@ Route::get('tickets/new', [TicketController::class, 'new']);
 Route::post('tickets/create', [TicketController::class, 'create'])->name('ticket.create');
 Route::get('tickets', [TicketController::class, 'index'])->name('ticket.index');
 Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('ticket.show');
+Route::post('tickets/{ticket}/reply', [ReplyController::class, 'create'])->name('reply.create');
 
 //Auth::routes();
