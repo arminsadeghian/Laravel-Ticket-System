@@ -18,6 +18,11 @@ class TicketController extends Controller
         return view('tickets.tickets', compact('tickets'));
     }
 
+    public function show(Ticket $ticket)
+    {
+        return view('tickets.ticket', compact('ticket'));
+    }
+
     public function new()
     {
         return view('tickets.new');

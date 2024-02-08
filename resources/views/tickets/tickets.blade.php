@@ -17,7 +17,7 @@
                 @foreach($tickets as $ticket)
                     <tr>
                         <td>
-                            <a href="#">
+                            <a href="{{ route('ticket.show', $ticket) }}">
                                 {{ $ticket->title }}
                             </a>
                         </td>

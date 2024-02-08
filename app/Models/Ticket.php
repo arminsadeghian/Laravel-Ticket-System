@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Ticket extends Model
 {
@@ -36,5 +37,22 @@ class Ticket extends Model
     public function getStatusAttribute($value)
     {
         return ['Created', 'Replied', 'Closed'][$value];
+    }
+
+    public function hasFile()
+    {
+        return !is_null($this->file_path);
+    }
+
+    public function file()
+    {
+        return $this->hasFile()
+            ? Storage::url($this->file_path)
+            : null;
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

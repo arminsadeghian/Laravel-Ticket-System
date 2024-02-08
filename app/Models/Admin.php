@@ -29,4 +29,9 @@ class Admin extends Authenticatable
     {
         return $this->hasMany(Ticket::class, 'department', 'department');
     }
+
+    public function replies()
+    {
+        return $this->morphMany(Reply::class, 'repliable');
+    }
 }
