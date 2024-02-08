@@ -22,4 +22,19 @@ class Ticket extends Model
         'file_path',
         'department'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getPriorityAttribute($value)
+    {
+        return ['Low', 'Mid', 'High'][$value];
+    }
+
+    public function getStatusAttribute($value)
+    {
+        return ['Created', 'Replied', 'Closed'][$value];
+    }
 }

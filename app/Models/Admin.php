@@ -24,4 +24,9 @@ class Admin extends Authenticatable
         'password',
         'department',
     ];
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'department', 'department');
+    }
 }

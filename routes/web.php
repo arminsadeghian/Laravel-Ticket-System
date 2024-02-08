@@ -43,5 +43,6 @@ Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->middl
 
 Route::get('tickets/new', [TicketController::class, 'new']);
 Route::post('tickets/create', [TicketController::class, 'create'])->name('ticket.create');
+Route::get('tickets', [TicketController::class, 'index'])->name('ticket.index');
 
 //Auth::routes();

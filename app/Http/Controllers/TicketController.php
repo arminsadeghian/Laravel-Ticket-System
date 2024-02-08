@@ -12,6 +12,12 @@ class TicketController extends Controller
         $this->middleware('auth:web,admin');
     }
 
+    public function index()
+    {
+        $tickets = auth()->user()->tickets;
+        return view('tickets.tickets', compact('tickets'));
+    }
+
     public function new()
     {
         return view('tickets.new');
