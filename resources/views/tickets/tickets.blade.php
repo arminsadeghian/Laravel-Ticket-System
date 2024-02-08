@@ -23,7 +23,7 @@
                         </td>
                         <td>{{ $ticket->user->name }}</td>
                         <td>{{ $ticket->priority }}</td>
-                        <td>{{ $ticket->status }}</td>
+                        <td>{{ $ticket->status_name }}</td>
                         <td>{{ $ticket->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach

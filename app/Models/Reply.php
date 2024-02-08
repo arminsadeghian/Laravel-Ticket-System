@@ -18,4 +18,9 @@ class Reply extends Model
     {
         return $this->morphTo();
     }
+
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }

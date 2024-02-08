@@ -34,9 +34,9 @@ class Ticket extends Model
         return ['Low', 'Mid', 'High'][$value];
     }
 
-    public function getStatusAttribute($value)
+    public function getStatusNameAttribute()
     {
-        return ['Created', 'Replied', 'Closed'][$value];
+        return ['Created', 'Replied', 'Closed'][$this->status];
     }
 
     public function hasFile()
@@ -54,5 +54,21 @@ class Ticket extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function isCreated()
+    {
+        return $this->status === 0;
+    }
+
+    public function replied()
+    {
+        $this->status = 1;
+        $this->save();
+    }
+
+    public function isAdmin()
+    {
+        return $this instanceof Admin;
     }
 }
