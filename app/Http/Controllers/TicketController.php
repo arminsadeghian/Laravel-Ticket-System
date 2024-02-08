@@ -37,6 +37,13 @@ class TicketController extends Controller
         return back()->with('success', 'Ticket sent successfully');
     }
 
+    public function close(Ticket $ticket)
+    {
+        $ticket->close();
+
+        return back()->with('success', 'Ticket closed successfully');
+    }
+
     private function uploadFile(Request $request)
     {
         return $request->hasFile('file')

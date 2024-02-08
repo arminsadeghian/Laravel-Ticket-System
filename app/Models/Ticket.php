@@ -71,4 +71,15 @@ class Ticket extends Model
     {
         return $this instanceof Admin;
     }
+
+    public function close()
+    {
+        $this->status = 2;
+        $this->save();
+    }
+
+    public function isClosed()
+    {
+        return $this->status === 2;
+    }
 }

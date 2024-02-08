@@ -13,13 +13,13 @@ class ReplyCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public Reply $reply;
-    public Admin $user;
+    public $reply;
+    public $user;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(Reply $reply, Admin $user)
+    public function __construct($reply, $user)
     {
         $this->reply = $reply;
         $this->user = $user;
